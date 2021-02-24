@@ -6,7 +6,4 @@ orbs:
 workflows:
  test:
    jobs:
-      - python/test:
-          args: '--dev'
-          pkg-manager: pipenv
-          test-tool: pytest
+      - python/test
