@@ -18,11 +18,11 @@ jobs:
       - run:
           name: Temp
           command: |
-            pwd
             ls ~
+            echo "here"
             ls ~/project
-            ls ~/..
-            ls ~/../..
+            echo "here"
+            ls ~/project/circleci
       - run:
           name: Install requirements
           command: |
