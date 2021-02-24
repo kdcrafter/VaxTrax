@@ -1,21 +1,20 @@
 version: 2.1
 
 orbs:
-  python: circleci/python@0.2.1
+ percy: percy/agent@0.1.3
 
 jobs:
-  build-and-test:
-    executor: python/default
-    steps:
-      - checkout
-      - python/load-cache
-      - python/install-deps
-      - python/save-cache
-      - run:
-          command: ./manage.py test
-          name: Test
+ run_tests:
+   parallelism: 3
+   steps:
+     - attach_workspace:
+         at: .
+     - run: pytest
 
 workflows:
-  main:
-    jobs:
-      - build-and-test
+ test:
+   jobs:
+     - run_tests
+     - percy/finalize_all:
+         requires:
+           - run_tests
