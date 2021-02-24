@@ -6,4 +6,5 @@ orbs:
 workflows:
  test:
    jobs:
-      - python/test
+      - python/test:
+        test-tool: pytest
