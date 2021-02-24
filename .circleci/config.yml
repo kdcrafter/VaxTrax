@@ -16,9 +16,14 @@ jobs:
             google-chrome --version
             chromedriver --version
       - run:
+          name: Temp
+          command: |
+            pwd
+            ls
+      - run:
           name: Install requirements
           command: |
-            python -m pip install -r ../requirements.txt
+            python -m pip install -r requirements.txt
       - run:
           name: Run tests
           command: |
