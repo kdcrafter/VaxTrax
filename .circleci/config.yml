@@ -1,20 +1,12 @@
 version: 2.1
 
 orbs:
- percy: percy/agent@0.1.3
-
-jobs:
- run_tests:
-   parallelism: 3
-   steps:
-     - attach_workspace:
-         at: .
-     - run: pytest
+  python: circleci/python@1.3.2
 
 workflows:
  test:
    jobs:
-     - run_tests
-     - percy/finalize_all:
-         requires:
-           - run_tests
+      - python/test:
+          args: '--dev'
+          pkg-manager: pipenv
+          test-tool: pytest
