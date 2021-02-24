@@ -9,8 +9,6 @@ jobs:
     docker:
       - image: 'cimg/python:3.9.2-browsers'
     steps:
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
       - run:
           name: Check browser installation
           command: |
