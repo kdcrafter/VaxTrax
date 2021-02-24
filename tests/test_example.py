@@ -11,6 +11,3 @@ def test_us001_simple_example(dash_duo):
     dash_duo.wait_for_element_by_id('us-total-vaccination-today')
 
     dash_duo.percy_snapshot("us001_example")
-
-def test_us001_fail_example(dash_duo):
-    assert False
