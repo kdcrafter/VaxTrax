@@ -19,9 +19,10 @@ jobs:
           name: Temp
           command: |
             pwd
-            ls ~/home
-            ls ~/home/circleci
-            ls ~/home/circleci/project
+            ls ~
+            ls ~/project
+            ls ~/..
+            ls ~/../..
       - run:
           name: Install requirements
           command: |
