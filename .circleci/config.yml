@@ -7,7 +7,7 @@ orbs:
 jobs:
   install_browsers:
     docker:
-      - image: 'cimg/node:13.12-browser'
+      - image: 'cimg/python:3.9.2-browsers'
     steps:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
@@ -22,4 +22,6 @@ workflows:
    jobs:
       - install_browsers
       - python/test:
+          requires:
+            - install_browsers
           test-tool: pytest
