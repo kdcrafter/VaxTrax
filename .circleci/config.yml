@@ -7,4 +7,4 @@ workflows:
  test:
    jobs:
       - python/test:
-        test-tool: pytest
+          test-tool: pytest
