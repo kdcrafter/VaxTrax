@@ -3,11 +3,11 @@ version: 2.1
 orbs:
   python: circleci/python@1.3.2
   browser-tools: circleci/browser-tools@1.1.3
+  win: circleci/windows@2.3.0
 
 jobs:
-  main:
-    docker:
-      - image: 'cimg/python:3.9.2-browsers'
+  install_browsers:
+    executor: win/default
     steps:
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
@@ -16,24 +16,12 @@ jobs:
           command: |
             google-chrome --version
             chromedriver --version
-      - run:
-          name: Temp
-          command: |
-            ls ~
-            echo "here"
-            ls ~/project
-            echo "here"
-      - run:
-          name: Install requirements
-          command: |
-            python -m pip install -r project/requirements.txt
-      - run:
-          name: Run tests
-          command: |
-            python -m pytest
 
 workflows:
  test:
    jobs:
+      - install_browsers
       - python/test:
+          requires:
+            - install_browsers
           test-tool: pytest
