@@ -22,11 +22,10 @@ jobs:
             echo "here"
             ls ~/project
             echo "here"
-            ls ~/project/circleci
       - run:
           name: Install requirements
           command: |
-            python -m pip install -r requirements.txt
+            python -m pip install -r project/requirements.txt
       - run:
           name: Run tests
           command: |
