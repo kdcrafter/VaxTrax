@@ -19,7 +19,9 @@ jobs:
           name: Temp
           command: |
             pwd
-            ls
+            ls .
+            ls ..
+            ls ...
       - run:
           name: Install requirements
           command: |
