@@ -4,6 +4,8 @@ import dash_html_components as html
 import plotly.express as px
 import pandas as pd
 
+from time import sleep
+
 from us_today import us_layout
 
 def test_us001_simple_example(dash_duo):
