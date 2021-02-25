@@ -33,6 +33,7 @@ def test_us001_simple_example(dash_duo):
     ])
 
     dash_duo.start_server(app)
+    dash_duo.driver.maximize_window()
 
     # dash_duo.find_element('#example-graph')
     # dash_duo.wait_for_element('#example-graph')
@@ -42,4 +43,6 @@ def test_us001_simple_example(dash_duo):
     # graph = dash_duo.find_element('#example-graph')
     # graph.screenshot('temp.png')
 
-    dash_duo.percy_snapshot('us001_example', wait_for_callbacks=True)
+    # dash_duo.percy_snapshot('us001_example', wait_for_callbacks=True)
+    sleep(5)
+    dash_duo.percy_snapshot('us001_example')
