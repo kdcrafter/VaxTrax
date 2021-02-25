@@ -8,6 +8,7 @@ workflows:
  test:
    jobs:
       - python/test:
+          args: '--percy-assets'
           test-tool: pytest
           setup:
             - browser-tools/install-chrome
