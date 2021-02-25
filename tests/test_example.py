@@ -25,6 +25,7 @@ def test_us001_simple_example(dash_duo):
         id='example-graph',
         figure=fig
     )
+    assert False
 
     dash_duo.start_server(app)
     dash_duo.driver.maximize_window()
@@ -39,4 +40,4 @@ def test_us001_simple_example(dash_duo):
 
     # dash_duo.percy_snapshot('us001_example', wait_for_callbacks=True)
     sleep(5)
-    dash_duo.percy_snapshot('us001_example')
+    dash_duo.percy_snapshot('us001_example', convert_canvases=True)
