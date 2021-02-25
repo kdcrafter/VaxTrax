@@ -25,7 +25,6 @@ def test_us001_simple_example(dash_duo):
         id='example-graph',
         figure=fig
     )
-    assert False
 
     dash_duo.start_server(app)
     dash_duo.driver.maximize_window()
