@@ -43,3 +43,5 @@ def test_us001_simple_example(dash_duo):
     # graph.screenshot('temp.png')
 
     dash_duo.percy_snapshot('us001_example', wait_for_callbacks=True)
+    graph = dash_duo.find_element('#example-graph')
+    graph.screenshot('temp.png')
