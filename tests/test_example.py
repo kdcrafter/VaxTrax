@@ -19,11 +19,27 @@ def test_us001_simple_example(dash_duo):
 
     fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
 
-    app.layout = dcc.Graph(
-        id='example-graph',
-        figure=fig
-    )
+    app.layout = html.Div(children=[
+        html.H1(children='Hello Dash'),
+
+        html.Div(children='''
+            Dash: A web application framework for Python.
+        '''),
+
+        dcc.Graph(
+            id='example-graph',
+            figure=fig
+        )
+    ])
 
     dash_duo.start_server(app)
 
-    dash_duo.percy_snapshot('us001_example')
+    # dash_duo.find_element('#example-graph')
+    # dash_duo.wait_for_element('#example-graph')
+    # dash_duo.wait_for_element_by_css_selector('#example-graph')
+    # dash_duo.wait_for_element_by_id('example-graph')
+
+    # graph = dash_duo.find_element('#example-graph')
+    # graph.screenshot('temp.png')
+
+    dash_duo.percy_snapshot('us001_example', wait_for_callbacks=True)
