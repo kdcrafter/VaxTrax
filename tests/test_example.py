@@ -21,18 +21,10 @@ def test_us001_simple_example(dash_duo):
 
     fig = px.bar(df, x="Fruit", y="Amount", color="City", barmode="group")
 
-    app.layout = html.Div(children=[
-        html.H1(children='Hello Dash'),
-
-        html.Div(children='''
-            Dash: A web application framework for Python.
-        '''),
-
-        dcc.Graph(
-            id='example-graph',
-            figure=fig
-        )
-    ])
+    app.layout = dcc.Graph(
+        id='example-graph',
+        figure=fig
+    )
 
     dash_duo.start_server(app)
     dash_duo.driver.maximize_window()
